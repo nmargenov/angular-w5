@@ -1,0 +1,12 @@
+<div class="main">
+    <form #form="ngForm" (ngSubmit)="onSubmit(); form.resetForm()">
+            <label for="quote">Quote:</label>
+            <input [class.invalid-input]="quoteInput.invalid && quoteInput.touched" type="text" name="quote" id="quote" #quoteInput="ngModel" [(ngModel)]="quote" required minlength="1">
+            <label for="description">Author:</label>
+            <input [class.invalid-input]="authorInput.invalid && authorInput.touched" name="author" id="author" #authorInput="ngModel" [(ngModel)]="author" required minlength="1"/>
+        <input [disabled]="authorInput.invalid || quoteInput.invalid" type="submit" name="submit" id="submit" value="Create quote">
+    </form>
+    <ul>
+        <li *ngFor="let quote of quotes">{{quote.quote}}<span>-{{quote.author}}</span></li>
+    </ul>
+</div>
