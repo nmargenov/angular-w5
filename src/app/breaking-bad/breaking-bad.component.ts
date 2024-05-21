@@ -30,7 +30,6 @@ export class BreakingBadComponent {
     this.breakingBadService.get10Quotes().subscribe(
       (response)=>{
         this.quotes=response;
-        console.log(this.quotes);
       },(error)=>{
         console.log(error);
       }
